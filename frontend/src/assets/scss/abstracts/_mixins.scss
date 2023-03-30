@@ -1,0 +1,44 @@
+@use 'breakpoints' as *;
+@use 'transitions' as *;
+
+@mixin screen($size) {
+  $breakpoint: map-get(
+    $map: $breakpoints,
+    $key: $size,
+  );
+
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin transition($property: 'all', $speed: 'normal') {
+  $transition-speed: map-get(
+    $map: $transitions,
+    $key: $speed,
+  );
+
+  transition: $property $transition-speed ease-in-out;
+}
+
+@mixin grid-layout($gap-mobile: 14px, $gap-desktop: 14px) {
+  @include column-layout(4, $gap-mobile);
+
+  @include screen(tablet-landscape) {
+    @include column-layout(12, $gap-desktop);
+  }
+}
+
+// Create a grid layout
+@mixin column-layout($columns, $gap: 14px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Set the component with this ID as a grid-area
+@mixin grid-area($id) {
+  ##{$id} {
+    grid-area: $id;
+  }
+}

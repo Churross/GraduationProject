@@ -1,0 +1,8 @@
+// Function to repeat the area as a string. Used for the grid-template-areas
+@function repeat-area($count, $area) {
+  $template: quote($area);
+  @for $i from 2 through $count {
+    $template: $template + " " + $area;
+  }
+  @return $template;
+}

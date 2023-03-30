@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+.hidden {
+  &--mobile {
+    display: none;
+
+    @include screen(tablet-landscape) {
+      display: initial;
+    }
+  }
+}

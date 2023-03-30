@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+pandas = "*"
+scipy = "*"
+numpy = "*"
+matplotlib = "*"
+flask-cors = "*"
+ipykernel = "*"
+tqdm = "*"
+edit-distance = "*"
+biopython = "*"
+editdistance = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

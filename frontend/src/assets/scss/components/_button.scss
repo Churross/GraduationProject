@@ -1,0 +1,36 @@
+@use '../abstracts' as *;
+
+button,
+.button {
+  appearance: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 600;
+  background-color: var(--clr-white-500);
+
+  &--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+
+    svg {
+      max-width: 16px;
+    }
+  }
+
+  
+
+  @include transition(all);
+
+  &:hover {
+  background-color: var(--clr-events-3);
+  // color: var(--clr-white-500);
+  }
+}
+
+
+

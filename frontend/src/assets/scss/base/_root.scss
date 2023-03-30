@@ -1,0 +1,49 @@
+@use '../abstracts/' as *;
+
+:root {
+  @each $color, $shade in $colors {
+    @each $prop, $value in $shade {
+      --clr-#{$color}-#{$prop}: #{$value};
+    }
+  }
+
+  @each $screen-size, $property in $type-scale {
+    @if $screen-size == small {
+      @each $prop, $value in $property {
+        --fs-#{$prop}: #{$value};
+      }
+    } @else if $screen-size == medium {
+      @include screen(tablet) {
+        @each $prop, $value in $property {
+          --fs-#{$prop}: #{$value};
+        }
+      }
+    } @else {
+      @include screen(laptop) {
+        @each $prop, $value in $property {
+          --fs-#{$prop}: #{$value};
+        }
+      }
+    }
+  }
+
+  @each $screen-size, $property in $line-scale {
+    @if $screen-size == small {
+      @each $prop, $value in $property {
+        --lh-#{$prop}: #{$value};
+      }
+    } @else if $screen-size == medium {
+      @include screen(tablet) {
+        @each $prop, $value in $property {
+          --lh-#{$prop}: #{$value};
+        }
+      }
+    } @else {
+      @include screen(laptop) {
+        @each $prop, $value in $property {
+          --lh-#{$prop}: #{$value};
+        }
+      }
+    }
+  }
+}
